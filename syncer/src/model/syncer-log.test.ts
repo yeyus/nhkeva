@@ -3,7 +3,9 @@ import { SyncerRun } from "./syncer-run";
 
 describe('SyncerLog', () => {
     beforeEach(() => {
-      jest.useFakeTimers();
+      jest
+        .useFakeTimers()
+        .setSystemTime(new Date('2020-01-01').getTime());
     });
     
     it('should create a new log', () => {
@@ -11,7 +13,7 @@ describe('SyncerLog', () => {
 
         expect(o).toMatchInlineSnapshot(`
 SyncerLog {
-  "dateCreated": 1642044086082,
+  "dateCreated": 1577836800000,
   "dateModified": 0,
   "runs": Array [],
 }
@@ -30,16 +32,16 @@ SyncerLog {
         
         expect(o).toMatchInlineSnapshot(`
 SyncerLog {
-  "dateCreated": 1642044086082,
-  "dateModified": 1642044086082,
+  "dateCreated": 1577836800000,
+  "dateModified": 1577836800000,
   "runs": Array [
     SyncerRun {
       "addedAssets": Array [
         "abc",
       ],
-      "endTime": 1642044086082,
+      "endTime": 1577836800000,
       "latestAssetCreation": 1642015617120,
-      "startTime": 1642044086082,
+      "startTime": 1577836800000,
     },
   ],
 }
@@ -84,7 +86,7 @@ SyncerLog {
 
         o.add(run);
 
-        expect(o.serialize()).toMatchInlineSnapshot(`"{\\"runs\\":[{\\"addedAssets\\":[\\"abc\\"],\\"latestAssetCreation\\":1642015617120,\\"startTime\\":1577923200000,\\"endTime\\":1577923200000}],\\"dateCreated\\":1577923200000,\\"dateModified\\":1577923200000}"`);
+        expect(o.serialize()).toMatchInlineSnapshot(`"{\\"runs\\":[{\\"addedAssets\\":[\\"abc\\"],\\"latestAssetCreation\\":1642015617120,\\"startTime\\":1577836800000,\\"endTime\\":1577836800000}],\\"dateCreated\\":1577836800000,\\"dateModified\\":1577836800000}"`);
     });
 
     it('should deserialize from string to object', () => {
