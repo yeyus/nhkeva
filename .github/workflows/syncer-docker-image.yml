@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: nhkeva-syncer
+  IMAGE_NAME: yeyus/nhkeva-syncer
   
 jobs:
   build-and-checkout:
