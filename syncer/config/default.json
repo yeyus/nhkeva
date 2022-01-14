@@ -1,0 +1,14 @@
+{
+    "nhk": {
+        "host": "http://movie-s.nhk.or.jp/ws",
+        "apiKey": "67f5b750-b419-11e9-8a16-0e45e8988f42"
+    },
+    "redis": {
+        "host": "redis://localhost:6379"
+    },
+    "zinc": {
+        "host": "http://localhost:4080",
+        "user": "admin",
+        "password": "D3vD4t4b4s3"
+    }
+}
