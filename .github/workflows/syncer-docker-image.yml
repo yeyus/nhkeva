@@ -1,5 +1,4 @@
-name: Docker Image CI
-
+name: Syncer Docker image CI
 on:
   workflow_dispatch:
   push:
@@ -8,6 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: yeyus/nhkeva-syncer
+  WORKING_DIR: ./syncer
   
 jobs:
   build-and-checkout:
@@ -19,6 +19,19 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: Setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        
+    - name: Install modules
+      working-directory: ${{ env.WORKING_DIR }}
+      run: npm install
+      
+    - name: Run tests
+      working-directory: ${{ env.WORKING_DIR }}
+      run: npm run test
 
     - name: Registry Login
       uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
