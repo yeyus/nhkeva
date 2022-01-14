@@ -63,6 +63,6 @@ SyncerRun {
         jest.setSystemTime(new Date('2020-01-02').getTime());
         o.finish();
 
-        expect(o.toString()).toMatchInlineSnapshot(`"SyncerRun[startTime=12/31/2019, 4:00:00 PM duration=86400000ms ids=abc]"`);
+        expect(o.toString()).toMatchInlineSnapshot(`"SyncerRun[startTime=1/1/2020, 12:00:00 AM duration=86400000ms ids=abc]"`);
     });
 });
