@@ -22,7 +22,7 @@
     "typescript": "^4.5.4"
   },
   "scripts": {
-    "test": "jest",
+    "test": "TZ=utc jest",
     "start": "node -r ts-node/register src/index.ts",
     "debug": "node --inspect-brk -r ts-node/register src/index.ts",
     "build": "tsc -p ."
