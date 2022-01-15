@@ -18,6 +18,8 @@ config:
       user: "admin"
       password: "D3vD4t4b4s3"
 
+environment: development
+
 image:
   repository: ghcr.io/yeyus/nhkeva-syncer
   pullPolicy: IfNotPresent
