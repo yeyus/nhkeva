@@ -2,8 +2,6 @@ name: Syncer Docker image CI
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
-  create:
     tags:        
       - v*
 
