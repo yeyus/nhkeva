@@ -53,7 +53,8 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: ${{ env.IMAGE_NAME }}
-        directory: ./syncer
+        dockerfile: ${{ env.WORKING_DIR }}/Dockerfile
+        directory: ${{ env.WORKING_DIR }}
         addLatest: true
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
