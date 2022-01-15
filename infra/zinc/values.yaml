@@ -1,0 +1,63 @@
+image:
+  repository: public.ecr.aws/prabhat/zinc
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+fullnameOverride: "zinc"
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# Credentials for authentication
+auth:
+  username: "admin"
+  password: "Complexpass#123"
+
+persistence:
+  # Enable Zinc data persistence using PVC, otherwise empty-dir is used
+  enabled: true
+  # PVC Storage Class for Zinc data volume, if empty - default storage class is used
+  storageClass: "nfs-client"
+  # PVC Storage Request for Zinc data volume
+  size: "10Gi"
+
+securityContext:
+  fsGroup: 2000
+  runAsUser: 10000
+  runAsGroup: 3000
+  runAsNonRoot: true
+
+service:
+  type: ClusterIP
+  port: 4080
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: zinc.example.local
+      paths:
+        - /
+  tls: []
+
+resources:
+   limits:
+     cpu: 1024m
+     memory: 512Mi
+   requests:
+     cpu: 32m
+     memory: 50Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

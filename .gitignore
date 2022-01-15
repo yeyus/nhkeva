@@ -132,3 +132,6 @@ dist
 # Project custom
 dev-redis-data/
 dev-zinc-data/
+
+# helm prod values
+values-production.yaml
