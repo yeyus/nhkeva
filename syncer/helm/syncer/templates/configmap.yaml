@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "syncer.fullname" . }}
+  labels:
+    {{- include "syncer.labels" . | nindent 4 }}
+data:
+{{- range $name, $config := .Values.config }}
+  {{ $name }}: |-
+{{ $config | toYaml | nindent 4 }}
+  {{- end }}

@@ -1,0 +1,2 @@
+1. Your cronjob has been deployed and it will run according to this expression.
+{{ .Values.schedule }}
